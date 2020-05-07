@@ -26,12 +26,13 @@ applyBtn.onclick = function (element) {
     // now redraw chart!
     // drawChartForOnlyOneEndpoint(filterList);
     
-    filteredData = drawFilteredChartStartpoint(filterListStarts,jsonData);
+    filteredData = filterDataByStartpoints(filterListStarts,jsonData);
     // this may be the most inefficient possible way of doing this
-    filteredFilteredData = drawFilteredChartEndpoint(filterListEnds,JSON.stringify(filteredData));
+    filteredFilteredData = filterDataByEndpoints(filterListEnds,JSON.stringify(filteredData));
     drawChart(filteredFilteredData);
 }
 
+////////// makesure the checkboxes stay sane ///
 onlyCatsToggle.onclick = function (element) {
     if (onlyCatsToggle.checked) {
         console.log("true");
@@ -49,7 +50,9 @@ showCatsToggle.onclick = function (element) {
     }
 }
 
-function drawFilteredChartStartpoint(startpoints, inputData) {
+/////////////////////////////////////////////////
+
+function filterDataByStartpoints(startpoints, inputData) {
     console.log(inputData);
     pointsToShow = startpoints.split(" ");
     var newThing = JSON.parse(inputData, function (key, value) {
@@ -78,8 +81,9 @@ function drawFilteredChartStartpoint(startpoints, inputData) {
     // drawChart(newThing);
 }
 
-function drawFilteredChartEndpoint(endpoints, inputData) {
 
+
+function filterDataByEndpoints(endpoints, inputData) {
     pointsToShow = endpoints.split(" ");
     var newThing = JSON.parse(inputData, function (key, value) {
         // if pass in empty string default to use normal dataset.
@@ -127,8 +131,8 @@ function drawChartForOnlyOneStartpoint(startpoint,inputData) {
         }
     });
     console.log(newThing);
-    // drawChart(newThing);
-    return newThing;
+    drawChart(newThing);
+    // return newThing;
 }
 
 function drawChart(parsedJsonData) {
