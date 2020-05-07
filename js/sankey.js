@@ -6,6 +6,9 @@ var data = new google.visualization.DataTable();
 data.addColumn('string', 'From');
 data.addColumn('string', 'To');
 data.addColumn('number', 'Weight');
+
+//jsonData should be set in a previous script
+let scopeData = JSON.parse(jsonData);
 let includeBlocked = true;
 for (let thing in scopeData) {
     if (thing.includes("month")) {
