@@ -8,6 +8,7 @@ data.addColumn('string', 'To');
 data.addColumn('number', 'Weight');
 
 //jsonData should be set in a previous script
+//console.log(jsonData)
 let scopeData = JSON.parse(jsonData);
 let includeBlocked = true;
 for (let thing in scopeData) {
@@ -15,8 +16,8 @@ for (let thing in scopeData) {
         let firstParties = scopeData[thing]["all1st"];
         let connections = scopeData[thing]["allConnected3rd"];
         let blocked = scopeData[thing]["allBlocked3rd"];
-        console.log(blocked);
-        console.log(connections);
+        // console.log(blocked);
+        // console.log(connections);
         let total;
         if (includeBlocked) {
             total = connections.concat(blocked);
@@ -37,7 +38,7 @@ for (let thing in scopeData) {
 }
 // Sets chart options.
 var options = {
-    width: 600,
+    //width: 600,
 };
 
 // Instantiates and draws our chart, passing in some options.
