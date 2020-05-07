@@ -6,11 +6,23 @@
   </head>
 
 <body>
+    <script type="text/javascript" src="assets/thirdparties/disconnectme/disconnect-tracking-protection/master/services.js"></script>
     <script src="js/getpartylist.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src = "assets/data.js"></script>
+    <div>
+      <p>Note that leaving a field empty counts as not filtering that aspect at all. Also, all fields are space-delimited</p>
+      <input id="filtersInputStartpoints" type="text">1st(?) parties to be shown. Requires full name (e.g. google.com vs just google)</input><br/>
+      <input id="filtersInputEndpoints" type="text">3rd parties to be shown. Requires full name (e.g. google-analytics.com vs just google-analytics</input><br/>
+      <input id="filtersCats" type="text"> categories to be shown </input><br/>
+      <input id="showCatsToggle" type="checkbox">Categorize the endpoints and display</button><br/>
+      <input id="onlyCatsToggle" type="checkbox">Put unknown endpoints into their own "Unknown" category</button>
+    </div>
+    <div>
+    </div>
+    <button id="applyBtn" type="button">apply filters</button>
+
     <script type="text/javascript" src ="js/sankey.js"></script>
-    <div id="sankey_basic" style="width: 2500px; height: 1500px;"></div>
+    <div id="sankey_basic" style="width: 98vw; height: 98vh;"></div>
 </body>
 
 </html>
